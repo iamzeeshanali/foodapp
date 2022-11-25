@@ -6,6 +6,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [cartItemQuantity, setCartItemQuantity] = useState<any>([]);
+  const [showRestaurant, setShowRestaurant] = useState<boolean>(false);
+  function displayRestaurant(file: string) {
+    if (file === "nav") {
+      setShowRestaurant(false);
+      return;
+    }
+    setShowRestaurant(true);
+  }
   function changeCartItemQuantity(dishId: number, quantity: number) {
     if (cartItemQuantity) {
       let items = [...cartItemQuantity, dishId];
@@ -18,12 +26,20 @@ function App() {
   return (
     <div className="mt-14">
       <Router>
-        <Navbar cartItemQuantity={cartItemQuantity} />
+        <Navbar
+          showRestaurant={showRestaurant}
+          displayRestaurant={displayRestaurant}
+          cartItemQuantity={cartItemQuantity}
+        />
         <Routes>
           <Route
             path="/"
             element={
-              <HomeScreen changeCartItemQuantity={changeCartItemQuantity} />
+              <HomeScreen
+                displayRestaurant={displayRestaurant}
+                showRestaurant={showRestaurant}
+                changeCartItemQuantity={changeCartItemQuantity}
+              />
             }
           />
         </Routes>

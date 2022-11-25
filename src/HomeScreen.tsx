@@ -14,11 +14,13 @@ function HomeScreen(props: any) {
     fetchRestaurents();
   }, []);
   return (
-    <div>
+    <div className="scroll-bar">
       {restaurants?.map((restaurant: any) => {
         return (
           <div key={restaurant?.restaurant_id}>
             <Restaurants
+              displayRestaurant={props.displayRestaurant}
+              showRestaurant={props.showRestaurant}
               changeCartItemQuantity={props.changeCartItemQuantity}
               name={restaurant?.restaurant_name}
               image={restaurant?.restaurant_image}
