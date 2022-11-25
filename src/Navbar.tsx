@@ -1,14 +1,19 @@
+import { useState } from "react";
 import backButton from "./images/back.png";
 import cartIcon from "./images/cart.png";
 
 function Navbar(props: any) {
   return (
-    <div className="flex fixed z-50 top-0 bg-white w-screen justify-between shadow-sm h-14 items-center">
+    <div className="flex fixed z-50 px-5 top-0 bg-white w-screen justify-between shadow-sm h-14 items-center">
       <div>
         <div className="flex text-slate-500 font-semibold ml-2 gap-2">
-          {window.location.pathname !== "" ? (
+          {props.showRestaurant ? (
             <>
               <img
+                className="cursor-pointer"
+                onClick={() => {
+                  props.displayRestaurant("nav");
+                }}
                 style={{ height: "25px", width: "25px" }}
                 src={backButton}
                 alt=""

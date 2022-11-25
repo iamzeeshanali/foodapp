@@ -19,8 +19,8 @@ function Dish(props?: any) {
   }, [itemQuantity]);
 
   return (
-    <div className="flex xs:relative border-b-gray-300 border-b-2 p-3">
-      <div className="w-screen">
+    <div className="flex dish-column xs:relative border-b-gray-300 border-b-2 p-3">
+      <div className="w-screen dish-column">
         <p className="font-semibold text-lg">
           {stringAdjustment(props.dish.dish_name)}
         </p>

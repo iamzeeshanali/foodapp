@@ -50,7 +50,7 @@ function Restaurant(props: any) {
       {/* table_menu_list */}
       <div
         id="category-parent"
-        className="fixed w-full z-50 top-14 bg-white flex items-center row-item shadow-md gap-4 h-14 snap-mandatory scroll-smooth snap-x overflow-x-auto"
+        className="fixed w-full z-50 top-14 bg-white flex items-center row-item shadow-md gap-4 lg:gap-20 xl:gap-32 h-14 snap-mandatory scroll-smooth snap-x overflow-x-auto"
       >
         {props.menuList.map((category: any, index: number) => {
           return (
@@ -72,7 +72,7 @@ function Restaurant(props: any) {
       <div className="relative top-14 row-item">
         {props.menuList.map((menuItem: any, parentIndex: any) => {
           return (
-            <div className="">
+            <div>
               {menuItem.category_dishes.map((dish: any, childIndex: number) => {
                 return (
                   <div id={`${parentIndex}-${childIndex}`} key={dish.dish_id}>
